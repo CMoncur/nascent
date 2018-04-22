@@ -1,4 +1,5 @@
 # HASKELL STUFF
+app/
 dist
 dist-*
 cabal-dev
