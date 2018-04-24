@@ -28,4 +28,4 @@ euclideanDistanceSquared :: Num a => [ a ] -> [ a ] -> a
 euclideanDistanceSquared v w
     | not $ length v == length w = throw DimensionalDiscrepancy
     | otherwise                  = let vw = zip v w in
-        foldl (\ x ( vs, ws ) -> x + ( ( vs - ws ) ^ 2 ) ) 0 vw
+        foldl (\ x ( vs, ws ) -> x + ( ( vs - ws ) ^ ( 2 :: Int ) ) ) 0 vw
