@@ -1,12 +1,13 @@
-module Nascent.Exception ( NascentException ) where
+module Nascent.Exception ( NascentException( .. ) ) where
 
 -- Core Dependencies
 import Control.Exception
-import Data.Typeable
 
 
 {- General exceptions related to Nascent -}
-data NascentException = DimensionalDiscrepancy
-        deriving ( Show, Typeable )
+data NascentException
+    = NascentException
+    | DimensionalDiscrepancy
+        deriving ( Show )
 
 instance Exception NascentException
