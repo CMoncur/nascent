@@ -27,6 +27,8 @@ library
       base >=4.7 && <5
   exposed-modules:
       Nascent,
+      Nascent.Exception,
+      Nascent.Formula,
       Nascent.KNearestNeighbor
   other-modules:
       Paths_nascent
