@@ -5,12 +5,11 @@ module Nascent.Error ( NascentError( .. ) ) where
 data NascentError
     = NascentError
     | DimensionalDiscrepancy
-        deriving ( Show )
 
 
 instance Show NascentError where
     show NascentError = nascentErrorMsg
-    show DimensionalDiscrepancy = DimensionalDiscrepancyMsg
+    show DimensionalDiscrepancy = dimensionalDiscrepancyMsg
 
 
 {- Exception Strings -}
