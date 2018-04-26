@@ -1,21 +1,21 @@
-module Nascent.Exception ( NascentException( .. ) ) where
+module Nascent.Error ( NascentError( .. ) ) where
 
 
 {- General exceptions related to Nascent -}
-data NascentException
-    = NascentException
+data NascentError
+    = NascentError
     | DimensionalDiscrepancy
         deriving ( Show )
 
 
-instance Show NascentException where
-    show NascentException = nascentExceptionMsg
+instance Show NascentError where
+    show NascentError = nascentErrorMsg
     show DimensionalDiscrepancy = DimensionalDiscrepancyMsg
 
 
 {- Exception Strings -}
-nascentExceptionMsg :: String
-nascentExceptionMsg =
+nascentErrorMsg :: String
+nascentErrorMsg =
     "Nascent Exception: General error"
 
 
