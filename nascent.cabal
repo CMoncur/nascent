@@ -49,15 +49,3 @@ test-suite nascent-test
       Paths_nascent
   default-language: Haskell2010
 
--- TODO: For testing only. Remove upon stable release.
-executable nascent-exe
-  main-is: Main.hs
-  hs-source-dirs:
-      app
-  ghc-options: -threaded -rtsopts -with-rtsopts=-N
-  build-depends:
-      base >=4.7 && <5,
-      nascent
-  other-modules:
-      Paths_nascent
-  default-language: Haskell2010

@@ -1,8 +1,5 @@
 module Nascent.Exception ( NascentException( .. ) ) where
 
--- Core Dependencies
-import Control.Exception
-
 
 {- General exceptions related to Nascent -}
 data NascentException
@@ -10,4 +7,18 @@ data NascentException
     | DimensionalDiscrepancy
         deriving ( Show )
 
-instance Exception NascentException
+
+instance Show NascentException where
+    show NascentException = nascentExceptionMsg
+    show DimensionalDiscrepancy = DimensionalDiscrepancyMsg
+
+
+{- Exception Strings -}
+nascentExceptionMsg :: String
+nascentExceptionMsg =
+    "Nascent Exception: General error"
+
+
+dimensionalDiscrepancyMsg :: String
+dimensionalDiscrepancyMsg =
+    "Dimensional Discrepancy: Values with differing dimensions were supplied"
