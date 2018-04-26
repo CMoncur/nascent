@@ -2,6 +2,7 @@ module Nascent.KNearestNeighbor
     ( fltr
     ) where
 
+-- TODO: Replace with real stuff
 fltr :: (a -> Bool) -> [a] -> [a]
 fltr _ []       = []
 fltr fn (x:xs)
