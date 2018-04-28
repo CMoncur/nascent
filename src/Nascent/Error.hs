@@ -5,6 +5,7 @@ module Nascent.Error ( NascentError( .. ) ) where
 data NascentError
     = NascentError
     | DimensionalDiscrepancy
+        deriving ( Eq )
 
 
 instance Show NascentError where

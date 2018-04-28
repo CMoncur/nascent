@@ -45,6 +45,7 @@ test-suite nascent-test
       hspec,
       nascent
   other-modules:
+      FormulaSpec,
       KNearestNeighborSpec,
       Paths_nascent
   default-language: Haskell2010
