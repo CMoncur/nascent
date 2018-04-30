@@ -26,3 +26,18 @@ spec = do
             it "should find distance given higher dimensional inputs" $
                 euclideanDistance [ 3, 4, 5, 6 ] [ 5, 6, 7, 8 ] `shouldBe`
                     Right 4
+
+        context "Euclidean Distance Squared" $ do
+            it "should result in 0 when passed empty lists" $
+                euclideanDistanceSquared [] [] `shouldBe` Right 0
+
+            it "should return error when passed lists of different sizes" $
+                euclideanDistanceSquared [ 1, 2 ] [ 1, 2, 3 ] `shouldBe`
+                    Left DimensionalDiscrepancy
+
+            it "should properly find distance between two points" $
+                euclideanDistanceSquared [ 0, 1 ] [ 1, 1 ] `shouldBe` Right 1
+
+            it "should find distance given higher dimensional inputs" $
+                euclideanDistanceSquared [ 3, 4, 5, 6 ] [ 5, 6, 7, 8 ]
+                    `shouldBe` Right 16
