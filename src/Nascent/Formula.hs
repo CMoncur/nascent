@@ -12,12 +12,10 @@ import Nascent.Error ( NascentError( .. ) )
 -- vectors.
 -}
 euclideanDistance :: Floating a => [ a ] -> [ a ] -> Either NascentError a
-euclideanDistance v w
-    | length v /= length w = Left DimensionalDiscrepancy
-    | otherwise            = let squared = euclideanDistanceSquared v w in
-        case squared of
-            Left err -> Left err
-            Right dis -> Right $ sqrt $ dis
+euclideanDistance v w =
+    case euclideanDistanceSquared v w of
+        Left err -> Left err
+        Right dis -> Right $ sqrt $ dis
 
 
 {- Will return the straight-line distance between two points to the power
