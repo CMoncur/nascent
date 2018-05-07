@@ -1,8 +1,9 @@
 module Nascent.KNearestNeighbor
-    ( K
+    ( Classification
+    , K
     , KNN ( .. )
     , KNNModel ( .. )
-    , TrainingSet
+    , TrainingSet ( .. )
     , Vector
     ) where
 
@@ -11,20 +12,25 @@ import Nascent.Formula
 
 
 -- Data Types
+type Classification = String
+
 type K = Int
 
 type Vector = [ Float ]
 
-type TrainingSet = ( K, [ Vector ] )
-
+data TrainingSet = TrainingSet
+    { k :: K
+    , training_data :: [ ( Vector, Classification ) ]
+    }
 
 -- K Nearest Neighbor Typeclass/Data Type
 class KNNModel a where
-    classify :: a -> Bool
+    classify :: a -> Classification
+    train :: a -> a
 
 
 data KNN = KNN TrainingSet
 
 
 instance KNNModel KNN where
-    classify ( KNN ( k, dataset ) ) = False
+    train t = t
