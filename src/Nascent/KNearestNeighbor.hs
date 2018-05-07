@@ -1,10 +1,30 @@
 module Nascent.KNearestNeighbor
-    ( fltr
+    ( K
+    , KNN ( .. )
+    , KNNModel ( .. )
+    , TrainingSet
+    , Vector
     ) where
 
--- TODO: Replace with real stuff
-fltr :: (a -> Bool) -> [a] -> [a]
-fltr _ []       = []
-fltr fn (x:xs)
-    | fn x       = x : fltr fn xs
-    | otherwise  = fltr fn xs
+-- Internal Dependencies
+import Nascent.Formula
+
+
+-- Data Types
+type K = Int
+
+type Vector = [ Float ]
+
+type TrainingSet = ( K, [ Vector ] )
+
+
+-- K Nearest Neighbor Typeclass/Data Type
+class KNNModel a where
+    classify :: a -> Bool
+
+
+data KNN = KNN TrainingSet
+
+
+instance KNNModel KNN where
+    classify ( KNN ( k, dataset ) ) = False
