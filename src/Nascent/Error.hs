@@ -5,12 +5,14 @@ module Nascent.Error ( NascentError( .. ) ) where
 data NascentError
     = NascentError
     | DimensionalDiscrepancy
-        deriving ( Eq )
+    | ZeroDimensionalInput
+        deriving ( Eq, Ord )
 
 
 instance Show NascentError where
-    show NascentError = nascentErrorMsg
+    show NascentError           = nascentErrorMsg
     show DimensionalDiscrepancy = dimensionalDiscrepancyMsg
+    show ZeroDimensionalInput   = zeroDimensionalInput
 
 
 {- Exception Strings -}
@@ -22,3 +24,8 @@ nascentErrorMsg =
 dimensionalDiscrepancyMsg :: String
 dimensionalDiscrepancyMsg =
     "Dimensional Discrepancy: Values with differing dimensions were supplied"
+
+
+zeroDimensionalInput :: String
+zeroDimensionalInput =
+    "Zero Dimensional Input: A value with zero dimensions was supplied"
